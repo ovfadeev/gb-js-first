@@ -13,12 +13,12 @@
 function numberToObject(n){
 	var obj = {};
 
-	if (+n > 999) {
+  if (+n > 999) {
     console.log('Ошибка! Введите число меньше 1000.');
 
     getNumber();
 
-	} else if (+n <= 999 && +n >= 0) {
+  } else if (+n <= 999 && +n >= 0) {
     var arr = numberToArray(+n);
 
     switch(arr.length){
