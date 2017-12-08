@@ -97,7 +97,7 @@ inviteGame();
 function inviteGame(){
   correctAnswer = 0; // обнуляем количество правильных ответов, если уже была игра
   var res = prompt('Хотите поиграть в игру? 1 - Игра, 0 - выход', 1); // запрашиваем согласие на игру
-  if (+res > 1){
+  if (+res > 1 || +res < 0){
     inviteGame();
   } else if (+res == 1){
     onGame(); // начинаем игру
