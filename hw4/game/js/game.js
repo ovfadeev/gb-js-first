@@ -67,6 +67,11 @@ function guessNumber(){
 }
 
 function checkNumber(myresult){
+  // если не было ходов или началась новая игра, обнуляем историю ходов
+  if (attempts == 0) {
+    round = {};
+  }
+
   // каждая проверка увеличивает кол-во попыток на 1
   attempts++;
 
