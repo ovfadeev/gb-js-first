@@ -11,6 +11,7 @@
  * @return {[object]} объект
  */
 function numberToObject(n){
+  var keys = ['units', 'dozen', 'hundreds'];
 	var obj = {};
 
   if (+n > 999) {
@@ -21,25 +22,8 @@ function numberToObject(n){
   } else if (+n <= 999 && +n >= 0) {
     var arr = numberToArray(+n);
 
-    switch(arr.length){
-      case 3:
-           obj = {
-            'сотни': parseInt(arr[0]),
-            'десятки': parseInt(arr[1]),
-            'единицы': parseInt(arr[2]),
-          }
-        break;
-      case 2:
-          obj = {
-            'десятки': parseInt(arr[0]),
-            'единицы': parseInt(arr[1]),
-          }
-        break;
-      case 1:
-          obj = {
-            'единицы': parseInt(arr[0]),
-          }
-        break;
+    for (var i = 0; i <= arr.length; i++) {
+      obj[keys[i]] = arr[i];
     }
 
   } else {
@@ -54,7 +38,7 @@ function numberToObject(n){
  * @return {[array]} массив
  */
 function numberToArray(n){
-  return String(+n).split("");
+  return String(+n).split("").reverse();
 }
 /**
  * Запрос на число
