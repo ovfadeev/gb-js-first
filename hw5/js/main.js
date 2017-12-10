@@ -50,11 +50,13 @@ function bildChessBoard(){
         divCell.className = classCells + ' ' + classCellsLetters;
         divCell.innerText = arrNumbers[i-1];
       } else if (j != 0 && j != countRowCells - 1){ // cells collor
+
         if ((j % 2 - i % 2) == 0){ // grey
           divCell.className = classCells + ' ' + arrCellsClass[0];
         } else { // brown
           divCell.className = classCells + ' ' + arrCellsClass[1];
         }
+
       } else { // cells empty
         divCell.className = classCells;
       }
