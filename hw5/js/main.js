@@ -5,20 +5,6 @@
 
 /* --- 1 --- */
 
-var arrLetters = ['A', 'B', 'C', 'D', 'I', 'F', 'G', 'H'],
-    arrNumbers = ['1', '2', '3', '4', '5', '6', '7', '8'],
-    arrCellsClassBack = ['grey', 'brown'],
-    arrCellsClassText = ['white', 'black'],
-    arrFiguresChess = ['', '', '', '', '', '', '', '', '', ''],
-    classCells = 'cell',
-    classCellsLetters = 'letters',
-    classRows = 'row',
-    classChess = 'chess',
-    countRowCells = 9,
-    classWrapper = 'wrapper';
-
-bildChessBoard();
-
 function bildChessBoard(){
   // wrapper
   var divWrapper = document.createElement('div');
@@ -66,8 +52,21 @@ function bildChessBoard(){
   }
   // append chess to wrapper
   divWrapper.appendChild(divChess);
-  // append chess to body
-  document.body.appendChild(divWrapper);
+  return divWrapper;
 }
+
+var arrLetters = ['A', 'B', 'C', 'D', 'I', 'F', 'G', 'H'],
+    arrNumbers = ['1', '2', '3', '4', '5', '6', '7', '8'],
+    arrCellsClassBack = ['grey', 'brown'],
+    arrCellsClassText = ['white', 'black'],
+    arrFiguresChess = ['', '', '', '', '', '', '', '', '', ''],
+    classCells = 'cell',
+    classCellsLetters = 'letters',
+    classRows = 'row',
+    classChess = 'chess',
+    countRowCells = 9,
+    classWrapper = 'wrapper';
+
+document.body.appendChild(bildChessBoard());
 
 /* --- end --- */
