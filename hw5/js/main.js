@@ -53,7 +53,6 @@ function bildChessBoard(){
           divCell.classList.add(arrCellsClassText[0]);
         } else if (i > 6 && i < countRowCells){
           divCell.classList.add(arrCellsClassText[1]);
-          console.log('black');
         }
 
       } else { // cells empty
