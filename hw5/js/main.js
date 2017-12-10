@@ -39,25 +39,26 @@ function bildChessBoard(){
     // bild div row
     var divRow = document.createElement('div');
     divRow.className = classRows;
+    // bild cells
     for (var j = 0; j < countRowCells; j++) {
       var divCell = document.createElement('div');
 
-      if ( (j != 0 && j != countRowCells - 1) && (i == 0 || i == countRowCells - 1) ){ // row letters
+      if ( (j != 0 && j != countRowCells - 1) && (i == 0 || i == countRowCells - 1) ){ // row cells letters
         divCell.className = classCells + ' ' + classCellsLetters;
         divCell.innerText = arrLetters[j-1];
-      } else if ( (j == 0 || j == countRowCells - 1) && (i > 0 && i < countRowCells - 1) ){ // row chess
+      } else if ( (j == 0 || j == countRowCells - 1) && (i > 0 && i < countRowCells - 1) ){ // cells number
         divCell.className = classCells + ' ' + classCellsLetters;
         divCell.innerText = arrNumbers[i-1];
-      } else if (j != 0 && j != countRowCells - 1){ // row chess
-        if ((j % 2 - i % 2) == 0){
+      } else if (j != 0 && j != countRowCells - 1){ // cells collor
+        if ((j % 2 - i % 2) == 0){ // grey
           divCell.className = classCells + ' ' + arrCellsClass[0];
-        } else {
+        } else { // brown
           divCell.className = classCells + ' ' + arrCellsClass[1];
         }
-      } else {
+      } else { // cells empty
         divCell.className = classCells;
       }
-      // appern cell
+      // append cell
       divRow.appendChild(divCell);
     }
     // append row
