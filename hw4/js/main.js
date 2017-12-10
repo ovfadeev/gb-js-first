@@ -22,7 +22,7 @@ function numberToObject(n){
   } else if (+n <= 999 && +n >= 0) {
     var arr = numberToArray(+n);
 
-    for (var i = 0; i <= arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
       obj[keys[i]] = arr[i];
     }
 
