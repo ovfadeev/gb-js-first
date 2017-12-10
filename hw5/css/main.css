@@ -36,3 +36,9 @@ body {
 .cell.brown {
 	background-color: #6d5345;
 }
+.cell.white {
+	color: #fff;
+}
+.cell.black {
+	color: #000;
+}
