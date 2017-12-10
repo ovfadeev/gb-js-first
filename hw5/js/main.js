@@ -14,7 +14,7 @@ var arrLetters = ['A', 'B', 'C', 'D', 'I', 'F', 'G', 'H'],
     classRows = 'row',
     classChess = 'chess',
     countRowCells = 10,
-    wrapperClassName = 'wrapper';
+    classWrapper = 'wrapper';
 
 console.log(arrLetters);
 console.log(arrNumbers);
@@ -30,7 +30,7 @@ function bildRows(){
 function bildChessBoard(){
   // wrapper
   var divWrapper = document.createElement('div');
-  divWrapper.className = wrapperClassName;
+  divWrapper.className = classWrapper;
   // bild div chess
   var divChess = document.createElement('div');
   divChess.className = classChess;
@@ -43,10 +43,10 @@ function bildChessBoard(){
     for (var j = 0; j < countRowCells; j++) {
       var divCell = document.createElement('div');
 
-      if ( (j != 0 && j != countRowCells - 1) && (i == 0 || i == countRowCells - 1) ){ // row cells letters
+      if ((j != 0 && j != countRowCells - 1) && (i == 0 || i == countRowCells - 1)){ // row cells letters
         divCell.className = classCells + ' ' + classCellsLetters;
         divCell.innerText = arrLetters[j-1];
-      } else if ( (j == 0 || j == countRowCells - 1) && (i > 0 && i < countRowCells - 1) ){ // cells number
+      } else if ((j == 0 || j == countRowCells - 1) && (i > 0 && i < countRowCells - 1)){ // cells number
         divCell.className = classCells + ' ' + classCellsLetters;
         divCell.innerText = arrNumbers[i-1];
       } else if (j != 0 && j != countRowCells - 1){ // cells collor
