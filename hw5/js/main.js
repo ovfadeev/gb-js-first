@@ -18,7 +18,7 @@ function createElement(node, classElement){
 }
 /**
  * Создаем шахматные фигуры в ячейке
- * @param  {[node]} parentNode нода ячейки в шахматах
+ * @param  {[node]} parentNode родительская ячейка
  * @param  {[number]} row числовое значение ряда
  * @param  {[number]} cell числовое значение ячейки
  * @return {[node]}
@@ -33,21 +33,22 @@ function createChessPieces(parentNode, row, cell){
       } else if (row == 2){
         parentNode.innerText = arrFiguresChess[countRowCells - 1];
       }
-    } else if (row > 6 && row < countRowCells){
+    } else if (row > countRowCells - 3 && row < countRowCells){
       parentNode.classList.add(arrCellsClassText[1]);
 
-      if (row == 7){
+      if (row == countRowCells - 2){
         parentNode.innerText = arrFiguresChess[countRowCells - 1];
-      } else if (row == 8){
+      } else if (row == countRowCells - 1){
         parentNode.innerText = arrFiguresChess[cell - 1];
       }
     }
   }
+
   return parentNode;
 }
 /**
  * Закрашиваем ячейку
- * @param  {[node]} parentNode нода ячейки
+ * @param  {[node]} parentNode родительская ячейка
  * @param  {[number]} row числовое значение ряда
  * @param  {[number]} cell числовое значение ячейки
  * @return {[node]}
@@ -63,16 +64,23 @@ function addColorCells(parentNode, row, cell){
 
   return parentNode;
 }
-
+/**
+ * Добавлем цифру ряда в ячейку
+ * @param {[node]} parentNode родительская ячейка
+ * @param  {[number]} row числовое значение ряда
+ * @param  {[number]} cell числовое значение ячейки
+ * @return {[node]}
+ */
 function addNumbersCells(parentNode, row, cell){
   if (cell == 0 || cell == countRowCells){
-    parentNode.innerText = arrNumbers[row - 1];
+    parentNode.innerText = row;
   }
+
   return parentNode;
 }
 /**
- * Добавляем буквы ячейку
- * @param  {[node]} parentNode нода ячейки
+ * Добавляем букву в ячейку
+ * @param  {[node]} parentNode родительская ячейка
  * @param  {[number]} row числовое значение ряда
  * @param  {[number]} cell числовое значение ячейки
  * @return {[node]}
@@ -110,6 +118,7 @@ function createCells(parentNode, row){
     // append cell
     parentNode.appendChild(divCell);
   }
+
   return parentNode;
 }
 /**
@@ -147,14 +156,13 @@ function createChessBoard(){
 }
 
 var arrLetters = ['A', 'B', 'C', 'D', 'I', 'F', 'G', 'H'],
-    arrNumbers = ['1', '2', '3', '4', '5', '6', '7', '8'],
     arrCellsClassBack = ['grey', 'brown'],
     arrCellsClassText = ['black', 'white'],
     arrFiguresChess = ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜', '♟'],
     classCells = 'cell',
     classRows = 'row',
     classChess = 'chess',
-    countRowCells = 9,
-    classWrapper = 'wrapper';
+    classWrapper = 'wrapper',
+    countRowCells = 9;
 
 document.body.appendChild(createChessBoard());
