@@ -3,70 +3,158 @@
  * Home work 5
  */
 
-/* --- 1 --- */
+/**
+ * Создаём html элемент
+ * @param  {[node]} node
+ * @param  {[string]} classElement класс элемента
+ * @return {[node]} html эелемент с классом
+ */
+function createElement(node, classElement){
+  var element = document.createElement(node);
 
-function bildChessBoard(){
-  // wrapper
-  var divWrapper = document.createElement('div');
-  divWrapper.className = classWrapper;
-  // bild div chess
-  var divChess = document.createElement('div');
-  divChess.className = classChess;
-  // bild rows
-  for (var i = 0; i <= countRowCells; i++) {
-    // bild div row
-    var divRow = document.createElement('div');
-    divRow.className = classRows;
-    // bild cells
-    for (var j = 0; j <= countRowCells; j++) {
-      var divCell = document.createElement('div');
+  element.classList.add(classElement);
 
-      if ((j != 0 && j != countRowCells) && (i == 0 || i == countRowCells)){ // row cells letters
-        divCell.classList.add(classCells, classCellsLetters);
-        divCell.innerText = arrLetters[j-1];
-      } else if ((j == 0 || j == countRowCells) && (i > 0 && i < countRowCells)){ // cells number
-        divCell.classList.add(classCells, classCellsLetters);
-        divCell.innerText = arrNumbers[i-1];
-      } else if (j != 0 && j != countRowCells){ // cells collor
+  return element;
+}
+/**
+ * Создаем шахматные фигуры в ячейке
+ * @param  {[node]} parentNode нода ячейки в шахматах
+ * @param  {[number]} row числовое значение ряда
+ * @param  {[number]} cell числовое значение ячейки
+ * @return {[node]}
+ */
+function createChessPieces(parentNode, row, cell){
+  if (cell != 0 && cell != countRowCells){
+    if (row > 0 && row < 3){
+      parentNode.classList.add(arrCellsClassText[0]);
 
-        if ((j % 2 - i % 2) == 0){ // grey
-          divCell.classList.add(classCells, arrCellsClassBack[0]);
-        } else { // brown
-          divCell.classList.add(classCells, arrCellsClassBack[1]);
-        }
-
-        if (i > 0 && i < 3){
-          divCell.classList.add(arrCellsClassText[0]);
-        } else if (i > 6 && i < countRowCells){
-          divCell.classList.add(arrCellsClassText[1]);
-        }
-
-      } else { // cells empty
-        divCell.className = classCells;
+      if (row == 1){
+        parentNode.innerText = arrFiguresChess[cell - 1];
+      } else if (row == 2){
+        parentNode.innerText = arrFiguresChess[countRowCells - 1];
       }
-      // append cell
-      divRow.appendChild(divCell);
+    } else if (row > 6 && row < countRowCells){
+      parentNode.classList.add(arrCellsClassText[1]);
+
+      if (row == 7){
+        parentNode.innerText = arrFiguresChess[countRowCells - 1];
+      } else if (row == 8){
+        parentNode.innerText = arrFiguresChess[cell - 1];
+      }
     }
-    // append row
-    divChess.appendChild(divRow);
   }
+  return parentNode;
+}
+/**
+ * Закрашиваем ячейку
+ * @param  {[node]} parentNode нода ячейки
+ * @param  {[number]} row числовое значение ряда
+ * @param  {[number]} cell числовое значение ячейки
+ * @return {[node]}
+ */
+function addColorCells(parentNode, row, cell){
+  if (cell != 0 && cell != countRowCells){
+    if ((cell % 2 - row % 2) == 0){ // grey
+      parentNode.classList.add(arrCellsClassBack[0]);
+    } else { // brown
+      parentNode.classList.add(arrCellsClassBack[1]);
+    }
+  }
+
+  return parentNode;
+}
+
+function addNumbersCells(parentNode, row, cell){
+  if (cell == 0 || cell == countRowCells){
+    parentNode.innerText = arrNumbers[row - 1];
+  }
+  return parentNode;
+}
+/**
+ * Добавляем буквы ячейку
+ * @param  {[node]} parentNode нода ячейки
+ * @param  {[number]} row числовое значение ряда
+ * @param  {[number]} cell числовое значение ячейки
+ * @return {[node]}
+ */
+function addLettersCells(parentNode, row, cell){
+  if (cell != 0 && cell != countRowCells && (row == 0 || row == countRowCells)){
+    parentNode.innerText = arrLetters[cell - 1];
+  }
+
+  return parentNode;
+}
+/**
+ * Создаём ячейку в шахматах
+ * @param  {[node]} parentNode нода ряда
+ * @param  {[number]} row числовое значение ряда
+ * @return {[node]}
+ */
+function createCells(parentNode, row){
+  // create cells
+  for (var i = 0; i <= countRowCells; i++) {
+    // create div cell
+    var divCell = createElement('div', classCells);
+
+    if (row > 0 && row < countRowCells){
+      // add numbers rows
+      divCell = addNumbersCells(divCell, row, i);
+      // create color cell
+      divCell = addColorCells(divCell, row, i);
+      // create chess pieces
+      divCell = createChessPieces(divCell, row, i);
+    } else {
+      // add letters cells
+      divCell = addLettersCells(divCell, row, i);
+    }
+    // append cell
+    parentNode.appendChild(divCell);
+  }
+  return parentNode;
+}
+/**
+ * Создаем ряд в шахматах
+ * @param  {[node]} parentNode родительский элемент
+ * @return {[node]}
+ */
+function createRowsChess(parentNode){
+  // create rows
+  for (var i = 0; i <= countRowCells; i++) {
+    // create div row
+    var divRow = createElement('div', classRows);
+
+    divRow = createCells(divRow, i);
+    // append row
+    parentNode.appendChild(divRow);
+  }
+  return parentNode;
+}
+/**
+ * Создаем шахматную доску
+ * @return {[node]}
+ */
+function createChessBoard(){
+  // create div wrapper
+  var divWrapper = createElement('div', classWrapper);
+  // create div chess
+  var divChess = createElement('div', classChess);
+
+  divChess = createRowsChess(divChess);
   // append chess to wrapper
   divWrapper.appendChild(divChess);
+
   return divWrapper;
 }
 
 var arrLetters = ['A', 'B', 'C', 'D', 'I', 'F', 'G', 'H'],
     arrNumbers = ['1', '2', '3', '4', '5', '6', '7', '8'],
     arrCellsClassBack = ['grey', 'brown'],
-    arrCellsClassText = ['white', 'black'],
-    arrFiguresChess = ['', '', '', '', '', '', '', '', '', ''],
+    arrCellsClassText = ['black', 'white'],
+    arrFiguresChess = ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜', '♟'],
     classCells = 'cell',
-    classCellsLetters = 'letters',
     classRows = 'row',
     classChess = 'chess',
     countRowCells = 9,
     classWrapper = 'wrapper';
 
-document.body.appendChild(bildChessBoard());
-
-/* --- end --- */
+document.body.appendChild(createChessBoard());
