@@ -9,6 +9,7 @@ body {
 	width: 700px;
 	height: 700px;
 	margin: 30px auto;
+	border: 1px solid #ccc;
 }
 .row {
 	display: flex;
@@ -34,9 +35,9 @@ body {
 .cell.brown {
 	background-color: #6d5345;
 }
-.cell.white {
+.cell.text-white {
 	color: #fff;
 }
-.cell.black {
+.cell.text-black {
 	color: #000;
 }

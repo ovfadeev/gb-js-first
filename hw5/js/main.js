@@ -157,7 +157,7 @@ function createChessBoard(){
 
 var arrLetters = ['A', 'B', 'C', 'D', 'I', 'F', 'G', 'H'],
     arrCellsClassBack = ['grey', 'brown'],
-    arrCellsClassText = ['black', 'white'],
+    arrCellsClassText = ['text-black', 'text-white'],
     arrFiguresChess = ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜', '♟'],
     classCells = 'cell',
     classRows = 'row',
