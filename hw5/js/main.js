@@ -155,7 +155,7 @@ function createChessBoard(){
   return divWrapper;
 }
 
-var arrLetters = ['A', 'B', 'C', 'D', 'I', 'F', 'G', 'H'],
+var arrLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
     arrCellsClassBack = ['grey', 'brown'],
     arrCellsClassText = ['text-white', 'text-black'],
     arrFiguresChess = ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜', '♟'],
