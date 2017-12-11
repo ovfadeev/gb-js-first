@@ -94,11 +94,11 @@ function addLettersCells(element, row, cell){
 }
 /**
  * Создаём ячейку в шахматах
- * @param  {[HTMLElement]} parentNode нода ряда
+ * @param  {[HTMLElement]} parentElement элемент ряда
  * @param  {[number]} row числовое значение ряда
  * @return {[HTMLElement]}
  */
-function createCells(parentNode, row){
+function createCells(parentElement, row){
   // create cells
   for (var i = 0; i <= countRowCells; i++) {
     // create div cell
@@ -116,17 +116,17 @@ function createCells(parentNode, row){
       divCell = addLettersCells(divCell, row, i);
     }
     // append cell
-    parentNode.appendChild(divCell);
+    parentElement.appendChild(divCell);
   }
 
-  return parentNode;
+  return parentElement;
 }
 /**
  * Создаем ряд в шахматах
- * @param  {[HTMLElement]} parentNode родительский элемент
+ * @param  {[HTMLElement]} parentElement родительский элемент
  * @return {[HTMLElement]}
  */
-function createRowsChess(parentNode){
+function createRowsChess(parentElement){
   // create rows
   for (var i = 0; i <= countRowCells; i++) {
     // create div row
@@ -134,9 +134,9 @@ function createRowsChess(parentNode){
 
     divRow = createCells(divRow, i);
     // append row
-    parentNode.appendChild(divRow);
+    parentElement.appendChild(divRow);
   }
-  return parentNode;
+  return parentElement;
 }
 /**
  * Создаем шахматную доску
