@@ -1,44 +1,44 @@
 body {
-	width: 100%;
+  width: 100%;
 }
 .wrapper {
-	width: 1160px;
-	margin: 0 auto;
-	font-family: 'Arial', sans-serif;
-	font-weight: normal;
-	font-size: 30px;
-	text-align: center;
+  width: 1160px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  font-weight: normal;
+  font-size: 30px;
+  text-align: center;
 }
 .chess {
-	width: 700px;
-	height: 700px;
-	margin: 30px auto;
-	border: 1px solid #ccc;
+  width: 700px;
+  height: 700px;
+  margin: 30px auto;
+  border: 1px solid #ccc;
 }
 .row {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .cell {
-	width: 10%;
-	height: 10%;
-	display: inline-block;
-	vertical-align: top;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+  width: 10%;
+  height: 10%;
+  display: inline-block;
+  vertical-align: top;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .cell.grey {
-	background-color: #c7b5ac;
+  background-color: #c7b5ac;
 }
 .cell.brown {
-	background-color: #6d5345;
+  background-color: #6d5345;
 }
 .cell.text-white {
-	color: #fff;
+  color: #fff;
 }
 .cell.text-black {
-	color: #000;
+  color: #000;
 }
