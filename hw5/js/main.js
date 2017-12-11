@@ -5,9 +5,9 @@
 
 /**
  * Создаём html элемент
- * @param  {[node]} node
+ * @param  {[HTMLElement]} HTMLElement
  * @param  {[string]} classElement класс элемента
- * @return {[node]} html эелемент с классом
+ * @return {[HTMLElement]} html эелемент с классом
  */
 function createElement(node, classElement){
   var element = document.createElement(node);
@@ -18,10 +18,10 @@ function createElement(node, classElement){
 }
 /**
  * Создаем шахматные фигуры в ячейке
- * @param  {[node]} element ячейка
+ * @param  {[HTMLElement]} element ячейка
  * @param  {[number]} row числовое значение ряда
  * @param  {[number]} cell числовое значение ячейки
- * @return {[node]}
+ * @return {[HTMLElement]}
  */
 function createChessPieces(element, row, cell){
   if (cell != 0 && cell != countRowCells){
@@ -48,10 +48,10 @@ function createChessPieces(element, row, cell){
 }
 /**
  * Закрашиваем ячейку
- * @param  {[node]} element ячейка
+ * @param  {[HTMLElement]} element ячейка
  * @param  {[number]} row числовое значение ряда
  * @param  {[number]} cell числовое значение ячейки
- * @return {[node]}
+ * @return {[HTMLElement]}
  */
 function addColorCells(element, row, cell){
   if (cell != 0 && cell != countRowCells){
@@ -66,10 +66,10 @@ function addColorCells(element, row, cell){
 }
 /**
  * Добавляем цифру ряда в ячейку
- * @param {[node]} element ячейка
+ * @param {[HTMLElement]} element ячейка
  * @param  {[number]} row числовое значение ряда
  * @param  {[number]} cell числовое значение ячейки
- * @return {[node]}
+ * @return {[HTMLElement]}
  */
 function addNumbersCells(element, row, cell){
   if (cell == 0 || cell == countRowCells){
@@ -80,10 +80,10 @@ function addNumbersCells(element, row, cell){
 }
 /**
  * Добавляем букву в ячейку
- * @param  {[node]} element ячейка
+ * @param  {[HTMLElement]} element ячейка
  * @param  {[number]} row числовое значение ряда
  * @param  {[number]} cell числовое значение ячейки
- * @return {[node]}
+ * @return {[HTMLElement]}
  */
 function addLettersCells(element, row, cell){
   if (cell != 0 && cell != countRowCells && (row == 0 || row == countRowCells)){
@@ -94,9 +94,9 @@ function addLettersCells(element, row, cell){
 }
 /**
  * Создаём ячейку в шахматах
- * @param  {[node]} parentNode нода ряда
+ * @param  {[HTMLElement]} parentNode нода ряда
  * @param  {[number]} row числовое значение ряда
- * @return {[node]}
+ * @return {[HTMLElement]}
  */
 function createCells(parentNode, row){
   // create cells
@@ -123,8 +123,8 @@ function createCells(parentNode, row){
 }
 /**
  * Создаем ряд в шахматах
- * @param  {[node]} parentNode родительский элемент
- * @return {[node]}
+ * @param  {[HTMLElement]} parentNode родительский элемент
+ * @return {[HTMLElement]}
  */
 function createRowsChess(parentNode){
   // create rows
@@ -140,7 +140,7 @@ function createRowsChess(parentNode){
 }
 /**
  * Создаем шахматную доску
- * @return {[node]}
+ * @return {[HTMLElement]}
  */
 function createChessBoard(){
   // create div wrapper
