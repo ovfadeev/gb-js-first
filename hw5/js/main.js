@@ -65,7 +65,7 @@ function addColorCells(element, row, cell){
   return element;
 }
 /**
- * Добавлем цифру ряда в ячейку
+ * Добавляем цифру ряда в ячейку
  * @param {[node]} element ячейка
  * @param  {[number]} row числовое значение ряда
  * @param  {[number]} cell числовое значение ячейки
