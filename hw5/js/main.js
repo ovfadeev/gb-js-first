@@ -18,79 +18,79 @@ function createElement(node, classElement){
 }
 /**
  * Создаем шахматные фигуры в ячейке
- * @param  {[node]} parentNode родительская ячейка
+ * @param  {[node]} element ячейка
  * @param  {[number]} row числовое значение ряда
  * @param  {[number]} cell числовое значение ячейки
  * @return {[node]}
  */
-function createChessPieces(parentNode, row, cell){
+function createChessPieces(element, row, cell){
   if (cell != 0 && cell != countRowCells){
     if (row > 0 && row < 3){
-      parentNode.classList.add(arrCellsClassText[0]);
+      element.classList.add(arrCellsClassText[0]);
 
       if (row == 1){
-        parentNode.innerText = arrFiguresChess[cell - 1];
+        element.innerText = arrFiguresChess[cell - 1];
       } else if (row == 2){
-        parentNode.innerText = arrFiguresChess[countRowCells - 1];
+        element.innerText = arrFiguresChess[countRowCells - 1];
       }
     } else if (row > countRowCells - 3 && row < countRowCells){
-      parentNode.classList.add(arrCellsClassText[1]);
+      element.classList.add(arrCellsClassText[1]);
 
       if (row == countRowCells - 2){
-        parentNode.innerText = arrFiguresChess[countRowCells - 1];
+        element.innerText = arrFiguresChess[countRowCells - 1];
       } else if (row == countRowCells - 1){
-        parentNode.innerText = arrFiguresChess[cell - 1];
+        element.innerText = arrFiguresChess[cell - 1];
       }
     }
   }
 
-  return parentNode;
+  return element;
 }
 /**
  * Закрашиваем ячейку
- * @param  {[node]} parentNode родительская ячейка
+ * @param  {[node]} element ячейка
  * @param  {[number]} row числовое значение ряда
  * @param  {[number]} cell числовое значение ячейки
  * @return {[node]}
  */
-function addColorCells(parentNode, row, cell){
+function addColorCells(element, row, cell){
   if (cell != 0 && cell != countRowCells){
     if ((cell % 2 - row % 2) == 0){ // grey
-      parentNode.classList.add(arrCellsClassBack[0]);
+      element.classList.add(arrCellsClassBack[0]);
     } else { // brown
-      parentNode.classList.add(arrCellsClassBack[1]);
+      element.classList.add(arrCellsClassBack[1]);
     }
   }
 
-  return parentNode;
+  return element;
 }
 /**
  * Добавлем цифру ряда в ячейку
- * @param {[node]} parentNode родительская ячейка
+ * @param {[node]} element ячейка
  * @param  {[number]} row числовое значение ряда
  * @param  {[number]} cell числовое значение ячейки
  * @return {[node]}
  */
-function addNumbersCells(parentNode, row, cell){
+function addNumbersCells(element, row, cell){
   if (cell == 0 || cell == countRowCells){
-    parentNode.innerText = row;
+    element.innerText = row;
   }
 
-  return parentNode;
+  return element;
 }
 /**
  * Добавляем букву в ячейку
- * @param  {[node]} parentNode родительская ячейка
+ * @param  {[node]} element ячейка
  * @param  {[number]} row числовое значение ряда
  * @param  {[number]} cell числовое значение ячейки
  * @return {[node]}
  */
-function addLettersCells(parentNode, row, cell){
+function addLettersCells(element, row, cell){
   if (cell != 0 && cell != countRowCells && (row == 0 || row == countRowCells)){
-    parentNode.innerText = arrLetters[cell - 1];
+    element.innerText = arrLetters[cell - 1];
   }
 
-  return parentNode;
+  return element;
 }
 /**
  * Создаём ячейку в шахматах
