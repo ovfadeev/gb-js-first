@@ -157,6 +157,12 @@ function createChessBoard(){
 
   return divWrapper;
 }
+/**
+ * Инициализация
+ */
+function init(){
+  document.body.appendChild(createChessBoard());
+}
 
 var startLettersCode = 64, // ascii code letters
     arrCellsClassBack = ['grey', 'brown'],
@@ -168,6 +174,4 @@ var startLettersCode = 64, // ascii code letters
     classWrapper = 'wrapper',
     countRowCells = 9;
 
-window.onload = function() {
-  document.body.appendChild(createChessBoard());
-}
+window.onload = init;
