@@ -133,7 +133,7 @@ function createRowsChess(parentElement){
   for (var i = countRowCells; i >= 0; i--) {
     // create div row
     var divRow = createElement('div', classRows);
-
+    // create cells
     divRow = createCells(divRow, i);
     // append row
     parentElement.appendChild(divRow);
