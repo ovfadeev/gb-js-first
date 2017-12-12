@@ -10,8 +10,7 @@ body {
   text-align: center;
 }
 .chess {
-  width: 700px;
-  height: 700px;
+  display: inline-block;
   margin: 30px auto;
   border: 1px solid #ccc;
 }
@@ -21,8 +20,8 @@ body {
   justify-content: center;
 }
 .cell {
-  width: 10%;
-  height: 10%;
+  width: 70px;
+  height: 70px;
   display: inline-block;
   vertical-align: top;
   display: flex;
