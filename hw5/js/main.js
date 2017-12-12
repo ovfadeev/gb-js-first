@@ -167,4 +167,6 @@ var arrLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
     classWrapper = 'wrapper',
     countRowCells = 9;
 
-document.body.appendChild(createChessBoard());
+window.onload = function() {
+  document.body.appendChild(createChessBoard());
+}
