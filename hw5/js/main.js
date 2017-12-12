@@ -90,7 +90,7 @@ function addNumbersCells(element, row, cell){
 function addLettersCells(element, row, cell){
   if (cell != 0 && cell != countRowCells && (row == 0 || row == countRowCells)){
     // element.innerText = arrLetters[cell - 1];
-    element.innerText = String.fromCharCode(startCharCode + cell);
+    element.innerText = String.fromCharCode(startLettersCode + cell);
   }
 
   return element;
@@ -158,7 +158,7 @@ function createChessBoard(){
   return divWrapper;
 }
 
-var startCharCode = 64, // ascii code char
+var startLettersCode = 64, // ascii code letters
     arrCellsClassBack = ['grey', 'brown'],
     arrCellsClassText = ['text-white', 'text-black'],
     arrFiguresChess = ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜', '♟'],
