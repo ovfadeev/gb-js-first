@@ -89,7 +89,8 @@ function addNumbersCells(element, row, cell){
  */
 function addLettersCells(element, row, cell){
   if (cell != 0 && cell != countRowCells && (row == 0 || row == countRowCells)){
-    element.innerText = arrLetters[cell - 1];
+    // element.innerText = arrLetters[cell - 1];
+    element.innerText = String.fromCharCode(startCharCode + cell);
   }
 
   return element;
@@ -114,7 +115,7 @@ function createCells(parentElement, row){
       // create chess pieces
       divCell = createChessPieces(divCell, row, i);
     } else {
-      // add letters cells
+      // add char cells
       divCell = addLettersCells(divCell, row, i);
     }
     // append cell
@@ -157,7 +158,7 @@ function createChessBoard(){
   return divWrapper;
 }
 
-var arrLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+var startCharCode = 64, // ascii code char
     arrCellsClassBack = ['grey', 'brown'],
     arrCellsClassText = ['text-white', 'text-black'],
     arrFiguresChess = ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜', '♟'],
