@@ -5,14 +5,16 @@
 
 /**
  * Создаём html элемент
- * @param  {[HTMLElement]} HTMLElement
+ * @param  {[node]} node
  * @param  {[string]} classElement класс элемента
  * @return {[HTMLElement]} html эелемент с классом
  */
 function createElement(node, classElement){
   var element = document.createElement(node);
 
-  element.classList.add(classElement);
+  if(typeof classElement !== "undefined"){
+    element.classList.add(classElement);
+  }
 
   return element;
 }
@@ -26,7 +28,7 @@ function createElement(node, classElement){
 function createChessPieces(element, row, cell){
   if (cell != 0 && cell != countRowCells){
     if (row > 0 && row < 3){
-      element.classList.add(arrCellsClassText[0]);
+      element.classList.add(arrCellsClassText[0]); // text-white
 
       if (row == 1){
         element.innerText = arrFiguresChess[cell - 1];
@@ -34,7 +36,7 @@ function createChessPieces(element, row, cell){
         element.innerText = arrFiguresChess[countRowCells - 1];
       }
     } else if (row > countRowCells - 3 && row < countRowCells){
-      element.classList.add(arrCellsClassText[1]);
+      element.classList.add(arrCellsClassText[1]); // text-white
 
       if (row == countRowCells - 2){
         element.innerText = arrFiguresChess[countRowCells - 1];
