@@ -149,7 +149,7 @@ function createChessBoard(){
   var divWrapper = createElement('div', classWrapper);
   // create div chess
   var divChess = createElement('div', classChess);
-
+  // create rows
   divChess = createRowsChess(divChess);
   // append chess to wrapper
   divWrapper.appendChild(divChess);
