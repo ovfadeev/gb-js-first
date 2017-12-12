@@ -29,7 +29,7 @@ function createChessPieces(element, row, cell){
   if (cell != 0 && cell != countRowCells){
     if (row > 0 && row < 3){
       element.classList.add(arrCellsClassText[0]); // text-white
-
+      // add figures
       if (row == 1){
         element.innerText = arrFiguresChess[cell - 1];
       } else if (row == 2){
@@ -37,7 +37,7 @@ function createChessPieces(element, row, cell){
       }
     } else if (row > countRowCells - 3 && row < countRowCells){
       element.classList.add(arrCellsClassText[1]); // text-white
-
+      // add figures
       if (row == countRowCells - 2){
         element.innerText = arrFiguresChess[countRowCells - 1];
       } else if (row == countRowCells - 1){
