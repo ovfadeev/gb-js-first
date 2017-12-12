@@ -128,7 +128,7 @@ function createCells(parentElement, row){
  */
 function createRowsChess(parentElement){
   // create rows
-  for (var i = 0; i <= countRowCells; i++) {
+  for (var i = countRowCells; i >= 0; i--) {
     // create div row
     var divRow = createElement('div', classRows);
 
