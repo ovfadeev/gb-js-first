@@ -56,9 +56,9 @@ function createChessPieces(element, row, cell){
 function addColorCells(element, row, cell){
   if (cell != 0 && cell != countRowCells){
     if ((cell % 2 - row % 2) == 0){ // grey
-      element.classList.add(arrCellsClassBack[0]);
-    } else { // brown
       element.classList.add(arrCellsClassBack[1]);
+    } else { // brown
+      element.classList.add(arrCellsClassBack[0]);
     }
   }
 
