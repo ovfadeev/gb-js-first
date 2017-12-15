@@ -11,7 +11,7 @@
  * Инициализация
  */
 function init() {
-  sliderView();
+  
 }
 
 window.onload = init;
