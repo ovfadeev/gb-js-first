@@ -24,8 +24,9 @@ function createElement(node, classElement){
  * @param  {[object]} event
  */
 function bigPicture(event) {
-  var picture = event.target,
-      mainViewImages = document.getElementById(classMainViewImages);
+  var picture = event.target;
+  var mainViewImages = document.getElementById(classMainViewImages);
+
   if(picture.classList.contains(classPreviewImg) && removeClassPreview()) {
     mainViewImages.innerHTML = '';
     var bigPicture = picture.cloneNode(true);
@@ -100,6 +101,7 @@ function createPreviewImages(galleryClass, arImages){
  */
 function nextSlide(event){
   event.preventDefault();
+
   var arrow = event.target;
   var classArrowLeft = 'js-arrow-left';
   var classArrowRight = 'js-arrow-right';
