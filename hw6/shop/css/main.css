@@ -7,53 +7,39 @@ body {
   font-family: 'Arial', sans-serif;
   font-weight: normal;
   font-size: 30px;
-  text-align: center;
+  text-align: left;
 }
 
-.gallery-item {
-    width: 150px;
-    margin: 10px;
-    cursor: pointer;
-    border: 2px solid white;
+.product-list {
+  overflow: hidden;
+  display: inline-block;
+  width: 500px;
+  vertical-align: top;
+  font-size: 16px;
 }
 
-.gallery-item.view {
-	border: 2px solid green;
+.product-list .product-item {
+  width: 50%;
+  float: left;
 }
 
-.main-view {
-	position: relative;
-    width: 500px;
-    height: 500px;
-    background-color: beige;
-    margin: 0 auto;
+.product-list .product-item .product-image img {
+  width: 100%;
 }
 
-.main-view .arrow {
-	display: inline-block;
-	position: absolute;
-	top: 50%;
-	width: 30px;
-	height: 30px;
-	background-color: red;
+.cart {
+  display: inline-block;
+  vertical-align: top;
 }
 
-.main-view .arrow.left {
-	left: 0;
+.cart .cart-items {
+  font-size: 16px;
 }
 
-.main-view .arrow.right {
-	right: 0;
+.cart .cart-items .cart-item {
+  margin: 10px;
 }
 
-.main-view-images {
-	width: 100%;
-}
-
-.main-view-images img {
-    width: 100%;
-}
-
-.gallery {
-    text-align: center;
+.cart .cart-total-price {
+  font-size: 20px;
 }
