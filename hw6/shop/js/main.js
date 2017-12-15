@@ -8,7 +8,7 @@
 function createElement(node, classElement){
   var element = document.createElement(node);
 
-  if(typeof classElement !== "undefined"){
+  if(classElement){
     element.classList.add(classElement);
   }
 
