@@ -1,0 +1,32 @@
+body {
+  width: 100%;
+}
+.wrapper {
+  width: 1160px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  font-weight: normal;
+  font-size: 30px;
+  text-align: center;
+}
+
+.gallery-item {
+    width: 150px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.mainView {
+    width: 500px;
+    height: 500px;
+    background-color: beige;
+    margin: 0 auto;
+}
+
+.mainView img {
+    width: 500px;
+}
+
+.gallery {
+    text-align: center;
+}
