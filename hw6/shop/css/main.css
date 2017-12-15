@@ -1,0 +1,45 @@
+body {
+  width: 100%;
+}
+.wrapper {
+  width: 1160px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  font-weight: normal;
+  font-size: 30px;
+  text-align: left;
+}
+
+.product-list {
+  overflow: hidden;
+  display: inline-block;
+  width: 500px;
+  vertical-align: top;
+  font-size: 16px;
+}
+
+.product-list .product-item {
+  width: 50%;
+  float: left;
+}
+
+.product-list .product-item .product-image img {
+  width: 100%;
+}
+
+.cart {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.cart .cart-items {
+  font-size: 16px;
+}
+
+.cart .cart-items .cart-item {
+  margin: 10px;
+}
+
+.cart .cart-total-price {
+  font-size: 20px;
+}
