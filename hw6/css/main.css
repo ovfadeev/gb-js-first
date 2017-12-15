@@ -14,17 +14,44 @@ body {
     width: 150px;
     margin: 10px;
     cursor: pointer;
+    border: 2px solid white;
 }
 
-.mainView {
+.gallery-item.view {
+	border: 2px solid green;
+}
+
+.main-view {
+	position: relative;
     width: 500px;
     height: 500px;
     background-color: beige;
     margin: 0 auto;
 }
 
-.mainView img {
-    width: 500px;
+.main-view .arrow {
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	width: 20px;
+	height: 30px;
+	background-color: red;
+}
+
+.main-view .arrow.left {
+	left: 0;
+}
+
+.main-view .arrow.right {
+	right: 0;
+}
+
+.main-view-images {
+	width: 100%;
+}
+
+.main-view-images img {
+    width: 100%;
 }
 
 .gallery {
