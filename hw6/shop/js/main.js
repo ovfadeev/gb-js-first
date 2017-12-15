@@ -78,8 +78,6 @@ function addToCart(event){
   event.preventDefault();
   var button = event.target;
   if(button.classList.contains(classButtonAddtoCart)) {
-
-
     var idProduct = button.getAttribute('data-product'),
         nameProduct = button.getAttribute('data-name'),
         priceProduct = button.getAttribute('data-price'),
