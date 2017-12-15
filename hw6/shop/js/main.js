@@ -19,7 +19,7 @@ function findElementCart(idProduct){
   var cartItems = document.getElementsByClassName(classCartItems);
 
   for (var i = 0; i < cartItems.length; i++) {
-    if (cartItems[i].getAttribute('data-product') == idProduct){
+    if (cartItems[i].dataset.product == idProduct){
       return cartItems[i];
     }
   }
@@ -31,9 +31,9 @@ function createElementCart(idProduct, nameProduct, priceProduct, quantity) {
   var cartItemPrice = createElement('div', classCartItemsPrice);
   var cartItemCount = createElement('div', classCartItemsCount);
 
-  cartItem.setAttribute('data-product', idProduct);
-  cartItem.setAttribute('data-price', priceProduct);
-  cartItem.setAttribute('data-quantity', quantity);
+  cartItem.dataset.product = idProduct;
+  cartItem.dataset.price = priceProduct;
+  cartItem.dataset.quantity = quantity;
 
   cartItemCount.setAttribute('id', classCartItemsCount + '-' + idProduct);
 
@@ -54,8 +54,8 @@ function updateTotalSum(){
 
   if (cartItems.length > 0){
     for (var i = 0; i < cartItems.length; i++) {
-      var price = cartItems[i].getAttribute('data-price'),
-          quantity = cartItems[i].getAttribute('data-quantity');
+      var price = cartItems[i].dataset.price;
+      var quantity = cartItems[i].dataset.quantity;
 
       totalSum += quantity * price;
     }
@@ -64,8 +64,8 @@ function updateTotalSum(){
 }
 
 function updateCartItem(cartItem){
-  var idProduct = cartItem.getAttribute('data-product');
-  var quantity = cartItem.getAttribute('data-quantity');
+  var idProduct = cartItem.dataset.product;
+  var quantity = cartItem.dataset.quantity;
   var itemQuantity = cartItem.lastChild;
 
   quantity = +quantity + defaultQuantityAddCart;
@@ -78,12 +78,12 @@ function addToCart(event){
   event.preventDefault();
   var button = event.target;
   if(button.classList.contains(classButtonAddtoCart)) {
-    var idProduct = button.getAttribute('data-product');
-    var nameProduct = button.getAttribute('data-name');
-    var priceProduct = button.getAttribute('data-price');
+    var idProduct = button.dataset.product;
+    var nameProduct = button.dataset.name;
+    var priceProduct = button.dataset.price;
     var cartItem = findElementCart(idProduct);
 
-    if (cartItem !== null && typeof cartItem !== 'undefined') {
+    if (cartItem) {
       updateCartItem(cartItem, defaultQuantityAddCart);
     } else {
       var cart = document.getElementById(classCart),
