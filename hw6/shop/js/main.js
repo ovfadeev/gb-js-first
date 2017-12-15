@@ -26,10 +26,10 @@ function findElementCart(idProduct){
 }
 
 function createElementCart(idProduct, nameProduct, priceProduct, quantity) {
-  var cartItem = createElement('div', classCartItems),
-      cartItemName = createElement('div', classCartItemsName),
-      cartItemPrice = createElement('div', classCartItemsPrice),
-      cartItemCount = createElement('div', classCartItemsCount);
+  var cartItem = createElement('div', classCartItems);
+  var cartItemName = createElement('div', classCartItemsName);
+  var cartItemPrice = createElement('div', classCartItemsPrice);
+  var cartItemCount = createElement('div', classCartItemsCount);
 
   cartItem.setAttribute('data-product', idProduct);
   cartItem.setAttribute('data-price', priceProduct);
@@ -48,9 +48,9 @@ function createElementCart(idProduct, nameProduct, priceProduct, quantity) {
 }
 
 function updateTotalSum(){
-  var cartItems = document.getElementsByClassName(classCartItems),
-      totalSum = 0,
-      totalSumElement = document.getElementById(classTotalSum);
+  var cartItems = document.getElementsByClassName(classCartItems);
+  var totalSum = 0;
+  var totalSumElement = document.getElementById(classTotalSum);
 
   if (cartItems.length > 0){
     for (var i = 0; i < cartItems.length; i++) {
@@ -64,9 +64,9 @@ function updateTotalSum(){
 }
 
 function updateCartItem(cartItem){
-  var idProduct = cartItem.getAttribute('data-product'),
-      quantity = cartItem.getAttribute('data-quantity'),
-      itemQuantity = cartItem.lastChild;
+  var idProduct = cartItem.getAttribute('data-product');
+  var quantity = cartItem.getAttribute('data-quantity');
+  var itemQuantity = cartItem.lastChild;
 
   quantity = +quantity + defaultQuantityAddCart;
 
@@ -78,10 +78,10 @@ function addToCart(event){
   event.preventDefault();
   var button = event.target;
   if(button.classList.contains(classButtonAddtoCart)) {
-    var idProduct = button.getAttribute('data-product'),
-        nameProduct = button.getAttribute('data-name'),
-        priceProduct = button.getAttribute('data-price'),
-        cartItem = findElementCart(idProduct);
+    var idProduct = button.getAttribute('data-product');
+    var nameProduct = button.getAttribute('data-name');
+    var priceProduct = button.getAttribute('data-price');
+    var cartItem = findElementCart(idProduct);
 
     if (cartItem !== null && typeof cartItem !== 'undefined') {
       updateCartItem(cartItem, defaultQuantityAddCart);
@@ -98,15 +98,15 @@ function addToCart(event){
 }
 /* --- end --- */
 
-var productList = document.getElementById('product-list'),
-    classButtonAddtoCart = 'product-add-cart',
-    classTotalSum = 'total-price',
-    classCart = 'cart-items',
-    classCartItems = 'cart-item',
-    classCartItemsName = 'item-name',
-    classCartItemsPrice = 'item-price',
-    classCartItemsCount = 'item-count',
-    defaultQuantityAddCart = 1;
+var productList = document.getElementById('product-list');
+var classButtonAddtoCart = 'product-add-cart';
+var classTotalSum = 'total-price';
+var classCart = 'cart-items';
+var classCartItems = 'cart-item';
+var classCartItemsName = 'item-name';
+var classCartItemsPrice = 'item-price';
+var classCartItemsCount = 'item-count';
+var defaultQuantityAddCart = 1;
 
 /**
  * Инициализация

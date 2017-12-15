@@ -29,6 +29,7 @@ function bigPicture(event) {
   if(picture.classList.contains(classPreviewImg) && removeClassPreview()) {
     mainViewImages.innerHTML = '';
     var bigPicture = picture.cloneNode(true);
+
     bigPicture.classList.remove(classPreviewImg);
     bigPicture.src = bigPicture.src.replace(previewPath, mainViewPath);
     bigPicture.classList.add(classMainViewImg);
@@ -99,17 +100,18 @@ function createPreviewImages(galleryClass, arImages){
  */
 function nextSlide(event){
   event.preventDefault();
-  var arrow = event.target,
-      classArrowLeft = 'js-arrow-left',
-      classArrowRight = 'js-arrow-right',
-      activePreview = findActivePreview(),
-      pic = null;
+  var arrow = event.target;
+  var classArrowLeft = 'js-arrow-left';
+  var classArrowRight = 'js-arrow-right';
+  var activePreview = findActivePreview();
+  var pic = null;
+
   if (arrow.classList.contains(classArrowLeft) && activePreview){
     pic = activePreview.previousElementSibling;
   } else if (arrow.classList.contains(classArrowRight) && activePreview){
     pic = activePreview.nextElementSibling;
   }
-  if (pic !== null){
+  if (pic){
     pic.click();
   }
 }
@@ -120,9 +122,9 @@ function sliderView(){
 
   createPreviewImages(classGallery, arImages);
 
-  var viewPic = document.getElementsByClassName(classMainViewImg),
-      previewPic = document.getElementsByClassName(classPreviewImg),
-      mainView = document.getElementById(classMainView);
+  var viewPic = document.getElementsByClassName(classMainViewImg);
+  var previewPic = document.getElementsByClassName(classPreviewImg);
+  var mainView = document.getElementById(classMainView);
 
   mainView.addEventListener('click', nextSlide);
 
@@ -137,16 +139,16 @@ function checkSrc(){
   alert("Ошибка: " + this.src);
 }
 
-var classPreviewImg = 'gallery-item',
-    classPreviewImgView = 'view',
-    classMainViewImg = 'view-orig-img',
-    classGallery = 'gallery',
-    classMainView = 'main-view',
-    classMainViewImages = 'main-view-images',
-    classSliderNavigation = 'pager',
-    previewPath = 'images/small/',
-    mainViewPath = 'images/orig/',
-    arImages = ['1.jpg', '2.jpeg', '3.jpg'];
+var classPreviewImg = 'gallery-item';
+var classPreviewImgView = 'view';
+var classMainViewImg = 'view-orig-img';
+var classGallery = 'gallery';
+var classMainView = 'main-view';
+var classMainViewImages = 'main-view-images';
+var classSliderNavigation = 'pager';
+var previewPath = 'images/small/';
+var mainViewPath = 'images/orig/';
+var arImages = ['1.jpg', '2.jpeg', '3.jpg'];
 
 /* --- end --- */
 
