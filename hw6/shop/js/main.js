@@ -65,13 +65,13 @@ function updateTotalSum(){
 
 function updateCartItem(cartItem){
   var idProduct = cartItem.getAttribute('data-product'),
-      quantity = cartItem.getAttribute('data-quantity');
+      quantity = cartItem.getAttribute('data-quantity'),
+      itemQuantity = cartItem.lastChild;
 
   quantity = +quantity + defaultQuantityAddCart;
 
   cartItem.setAttribute('data-quantity', quantity);
-
-  document.getElementById(classCartItemsCount + '-' + idProduct).innerText = quantity;
+  itemQuantity.innerText = quantity;
 }
 
 function addToCart(event){
