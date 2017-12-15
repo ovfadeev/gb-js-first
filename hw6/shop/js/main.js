@@ -70,13 +70,15 @@ function updateCartItem(cartItem){
 
   quantity = +quantity + defaultQuantityAddCart;
 
-  cartItem.setAttribute('data-quantity', quantity);
+  cartItem.dataset.quantity = quantity;
   itemQuantity.innerText = quantity;
 }
 
 function addToCart(event){
   event.preventDefault();
+
   var button = event.target;
+
   if(button.classList.contains(classButtonAddtoCart)) {
     var idProduct = button.dataset.product;
     var nameProduct = button.dataset.name;
@@ -86,9 +88,9 @@ function addToCart(event){
     if (cartItem) {
       updateCartItem(cartItem, defaultQuantityAddCart);
     } else {
-      var cart = document.getElementById(classCart),
-          totalSum = document.getElementById(classTotalSum),
-          cartItem = createElementCart(idProduct, nameProduct, priceProduct, defaultQuantityAddCart);
+      var cart = document.getElementById(classCart);
+      var totalSum = document.getElementById(classTotalSum);
+      var cartItem = createElementCart(idProduct, nameProduct, priceProduct, defaultQuantityAddCart);
 
       cart.appendChild(cartItem);
     }
