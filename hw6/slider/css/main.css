@@ -1,0 +1,59 @@
+body {
+  width: 100%;
+}
+.wrapper {
+  width: 1160px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  font-weight: normal;
+  font-size: 30px;
+  text-align: center;
+}
+
+.gallery-item {
+    width: 150px;
+    margin: 10px;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+.gallery-item.view {
+	border: 2px solid green;
+}
+
+.main-view {
+	position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: beige;
+    margin: 0 auto;
+}
+
+.main-view .arrow {
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	width: 30px;
+	height: 30px;
+	background-color: red;
+}
+
+.main-view .arrow.left {
+	left: 0;
+}
+
+.main-view .arrow.right {
+	right: 0;
+}
+
+.main-view-images {
+	width: 100%;
+}
+
+.main-view-images img {
+    width: 100%;
+}
+
+.gallery {
+    text-align: center;
+}

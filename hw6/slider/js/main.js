@@ -1,6 +1,6 @@
 "use strict";
 /**
- * Home work 5
+ * Home work 6
  */
 
 /* --- 1 - 3 --- */
@@ -80,14 +80,14 @@ function addClassPreview(element){
 function createPreviewImages(galleryClass, arImages){
   var gallery = document.getElementById(galleryClass);
   for(var i = 0; i < arImages.length; i++) {
-    var img = createElement('img', classPreviewImg);
-    img.src = previewPath + arImages[i];
-
-    img.setAttribute('data-id', i);
-
-    gallery.appendChild(img);
+    var img = createElement('img', classPreviewImg),
+        path = previewPath + arImages[i];
 
     img.onerror = checkSrc;
+
+    img.src = path;
+
+    gallery.appendChild(img);
   }
 
   gallery.addEventListener('click', bigPicture);
