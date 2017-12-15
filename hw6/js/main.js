@@ -150,12 +150,6 @@ var classPreviewImg = 'gallery-item',
 
 /* --- end --- */
 
-/* --- 2 --- */
-
-
-
-/* --- end --- */
-
 /**
  * Инициализация
  */
