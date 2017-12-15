@@ -82,8 +82,8 @@ function addClassPreview(element){
 function createPreviewImages(galleryClass, arImages){
   var gallery = document.getElementById(galleryClass);
   for(var i = 0; i < arImages.length; i++) {
-    var img = createElement('img', classPreviewImg),
-        path = previewPath + arImages[i];
+    var img = createElement('img', classPreviewImg);
+    var path = previewPath + arImages[i];
 
     img.onerror = checkSrc;
 
