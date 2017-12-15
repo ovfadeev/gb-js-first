@@ -3,7 +3,7 @@
  * Home work 5
  */
 
-/* --- 1 --- */
+/* --- 1 - 3 --- */
 /**
  * Создание элементов
  * @param  {[HTMLElement]} node
@@ -20,7 +20,7 @@ function createElement(node, classElement){
   return element;
 }
 /**
- * Показываем слайд
+ * Генерация большой картинки в слайд
  * @param  {[object]} event
  */
 function bigPicture(event) {
@@ -117,6 +117,9 @@ function nextSlide(event){
  * Показ слайда
  */
 function sliderView(){
+
+  createPreviewImages(classGallery, arImages);
+
   var viewPic = document.getElementsByClassName(classMainViewImg),
       previewPic = document.getElementsByClassName(classPreviewImg),
       mainView = document.getElementById(classMainView);
@@ -133,13 +136,6 @@ function sliderView(){
 function checkSrc(){
   alert("Ошибка: " + this.src);
 }
-/**
- * Инициализация
- */
-function init() {
-  createPreviewImages(classGallery, arImages);
-  sliderView();
-}
 
 var classPreviewImg = 'gallery-item',
     classPreviewImgView = 'view',
@@ -152,5 +148,19 @@ var classPreviewImg = 'gallery-item',
     mainViewPath = 'images/orig/',
     arImages = ['1.jpg', '2.jpeg', '3.jpg'];
 
-window.onload = init;
 /* --- end --- */
+
+/* --- 2 --- */
+
+
+
+/* --- end --- */
+
+/**
+ * Инициализация
+ */
+function init() {
+  sliderView();
+}
+
+window.onload = init;
