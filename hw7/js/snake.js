@@ -1,16 +1,16 @@
 'use strict';
 /* --- params --- */
 // coords
-var FIELD_SIZE_X = 40; // cells x
-var FIELD_SIZE_Y = 40; // cells y
+var FIELD_SIZE_X = 40; //  count cells x
+var FIELD_SIZE_Y = 40; // count cells y
 // speed
 var SNAKE_SPEED = 300; // ms
 var FOOD_SPEED = 3000; // ms
 var BARRIER_SPEED = 5000; // ms
 // level up
-var LEVEL_UP_SPEED = 20000;
-var LEVEL_REDUCE_SPEED_PERSENT = 10;
-var MAX_LEVEL = 10;
+var LEVEL_UP_SPEED = 20000; // ms
+var LEVEL_REDUCE_SPEED_PERSENT = 10; // count
+var MAX_LEVEL = 8; // count
 // max barrier 10% cells
 var MAX_COUNT_BARRIER = Math.floor(((FIELD_SIZE_X * FIELD_SIZE_Y) / 100) * 10);
 // max food 1% cells
@@ -119,6 +119,9 @@ function reduceSpeed(speed, persentReduce){
 
 function nextLevel(){
   if (countLevel < MAX_LEVEL){
+    countLevel++;
+    document.getElementById(idLevel).innerText = countLevel;
+
     var snakeSpeed = reduceSpeed(SNAKE_SPEED, LEVEL_REDUCE_SPEED_PERSENT * countLevel);
     var barrierSpeed = reduceSpeed(BARRIER_SPEED, LEVEL_REDUCE_SPEED_PERSENT * countLevel);
 
@@ -127,9 +130,6 @@ function nextLevel(){
 
     snakeTimer = setInterval(move, snakeSpeed);
     barrierTimer = setInterval(createBarrier, barrierSpeed);
-
-    countLevel++;
-    document.getElementById(idLevel).innerText = countLevel;
   }
 }
 
