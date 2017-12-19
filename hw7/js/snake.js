@@ -60,25 +60,25 @@ function createElement(node, classElement){
 function changeDirectionHandler(event) {
   switch(event.keyCode) {
     case 37:
-    if(direction !== 'right') {
-      direction = 'left';
-    }
-    break;
+      if(direction !== 'right') {
+        direction = 'left';
+      }
+      break;
     case 38:
-    if(direction !== 'bottom') {
-      direction = 'top';
-    }
-    break;
+      if(direction !== 'bottom') {
+        direction = 'top';
+      }
+      break;
     case 39:
-    if(direction !== 'left') {
-      direction = 'right';
-    }
-    break;
+      if(direction !== 'left') {
+        direction = 'right';
+      }
+      break;
     case 40:
-    if(direction !== 'top') {
-      direction = 'bottom';
-    }
-    break;
+      if(direction !== 'top') {
+        direction = 'bottom';
+      }
+      break;
   }
 }
 
@@ -171,17 +171,17 @@ function move() {
 
   switch(direction) {
     case 'top':
-    snakeCoordX--;
-    break;
+      snakeCoordX--;
+      break;
     case 'bottom':
-    snakeCoordX++;
-    break;
+      snakeCoordX++;
+      break;
     case 'left':
-    snakeCoordY--;
-    break;
+      snakeCoordY--;
+      break;
     case 'right':
-    snakeCoordY++;
-    break;
+      snakeCoordY++;
+      break;
   }
 
   snakeCoordX = isEndFields(snakeCoordX, 0, FIELD_SIZE_X - 1);
