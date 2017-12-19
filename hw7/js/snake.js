@@ -2,8 +2,8 @@
 var FIELD_SIZE_X = 40; // cells x
 var FIELD_SIZE_Y = 40; // cells y
 var SNAKE_SPEED = 100; // ms
-var FOOD_SPEED = 300; // ms
-var BARRIER_SPEED = 1000; // ms
+var FOOD_SPEED = 3000; // ms
+var BARRIER_SPEED = 5000; // ms
 // max barrier 10% cells
 var MAX_COUNT_BARRIER = Math.floor(((FIELD_SIZE_X * FIELD_SIZE_Y) / 100) * 10);
 // max food 1% cells
