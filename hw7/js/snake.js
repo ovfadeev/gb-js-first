@@ -9,6 +9,7 @@ var MAX_COUNT_BARRIER = Math.floor(((FIELD_SIZE_X * FIELD_SIZE_Y) / 100) * 10);
 // max food 1% cells
 var MAX_COUNT_FOOD = Math.floor(((FIELD_SIZE_X * FIELD_SIZE_Y) / 100) * 1);
 
+// variables
 var snakeTimer;
 var foodTimer;
 var barrierTimer;
@@ -20,7 +21,7 @@ var score = 0;
 var countBarrier = 0;
 var countFood = 0;
 
-// id
+// id html
 var idButtonStart = 'snake-start';
 var idButtonReload = 'snake-reload';
 var idSnakeField = 'snake-field';
@@ -28,14 +29,14 @@ var idSnakeActionBar = 'snake-action-bar';
 var idGameTable = 'game-table';
 var idScore = 'score';
 
-// class css
+// class html
 var classGameTable = 'game-table';
 var classGameTableCell = 'game-table-cell';
 var classSnakeUnit = 'snake-unit';
 var classFoodUnit = 'food-unit';
 var classBarrierUnit = 'barrier-unit';
 
-// alert
+// alert msg
 var msgGameOver = 'Game over, looser!!!';
 
 function init() {
