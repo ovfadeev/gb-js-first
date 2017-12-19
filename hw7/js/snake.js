@@ -1,3 +1,4 @@
+'use strict';
 // params
 var FIELD_SIZE_X = 40; // cells x
 var FIELD_SIZE_Y = 40; // cells y
