@@ -16,7 +16,7 @@ var MAX_COUNT_BARRIER = Math.floor(((FIELD_SIZE_X * FIELD_SIZE_Y) / 100) * 10);
 // max food 1% cells
 var MAX_COUNT_FOOD = Math.floor(((FIELD_SIZE_X * FIELD_SIZE_Y) / 100) * 1);
 
-// variables
+/* --- variables --- */
 var snakeTimer;
 var foodTimer;
 var barrierTimer;
@@ -30,7 +30,7 @@ var countBarrier = 0;
 var countFood = 0;
 var countLevel = 1;
 
-// id html
+/* --- id html --- */
 var idButtonStart = 'snake-start';
 var idButtonReload = 'snake-reload';
 var idSnakeField = 'snake-field';
@@ -39,16 +39,19 @@ var idGameTable = 'game-table';
 var idScore = 'score';
 var idLevel = 'level';
 
-// class html
+/* --- class html --- */
 var classGameTable = 'game-table';
 var classGameTableCell = 'game-table-cell';
 var classSnakeUnit = 'snake-unit';
 var classFoodUnit = 'food-unit';
 var classBarrierUnit = 'barrier-unit';
 
-// alert msg
+/* --- alert msg --- */
 var msgGameOver = 'Game over, looser!!!';
 
+/**
+ * Инициализация
+ */
 function init() {
   generateGameField();
 
@@ -56,7 +59,12 @@ function init() {
   document.getElementById(idButtonReload).addEventListener('click', refreshGameHandler);
   window.addEventListener('keydown', changeDirectionHandler);
 }
-
+/**
+ * Создаём html элемент
+ * @param  {[HTMLelement]} node
+ * @param  {[string]} classElement
+ * @return {[HTMLelement]}
+ */
 function createElement(node, classElement){
   var element = document.createElement(node);
 
@@ -66,7 +74,10 @@ function createElement(node, classElement){
 
   return element;
 }
-
+/**
+ * Событие нажатия клавиш клавиатуры
+ * @param  {[object]} event
+ */
 function changeDirectionHandler(event) {
   switch(event.keyCode) {
     case 37:
@@ -91,7 +102,9 @@ function changeDirectionHandler(event) {
       break;
   }
 }
-
+/**
+ * Создаём игровое поле
+ */
 function generateGameField() {
   var table = createElement('table', classGameTable);
   var fieldWidth = (FIELD_SIZE_X * 10 + FIELD_SIZE_X * 1 + 1) + 'px';
@@ -112,11 +125,18 @@ function generateGameField() {
 
   document.getElementById(idSnakeField).appendChild(table);
 }
-
+/**
+ * Увеличивем скорость
+ * @param  {[number]} speed текущая скорость
+ * @param  {[number]} persentReduce процент
+ * @return {[number]}
+ */
 function reduceSpeed(speed, persentReduce){
   return speed - Math.floor((speed / 100) * persentReduce);
 }
-
+/**
+ * Следующий уровень
+ */
 function nextLevel(){
   if (countLevel < MAX_LEVEL){
     countLevel++;
@@ -132,7 +152,9 @@ function nextLevel(){
     barrierTimer = setInterval(createBarrier, barrierSpeed);
   }
 }
-
+/**
+ * Старт игры
+ */
 function startGameHandler() {
   respawn();
 
@@ -141,7 +163,13 @@ function startGameHandler() {
   barrierTimer = setInterval(createBarrier, BARRIER_SPEED);
   levelTimer = setInterval(nextLevel, LEVEL_UP_SPEED);
 }
-
+/**
+ * Создаем юниты
+ * @param  {[string]} classUnit html класс
+ * @param  {[number]} countUnit    текущее количество юнитов на игровом поле
+ * @param  {[number]} maxCountUnit максимальное количество юнитов
+ * @return {[number]}
+ */
 function createUnit(classUnit, countUnit, maxCountUnit){
   var unitCreated = false;
 
@@ -168,15 +196,21 @@ function createUnit(classUnit, countUnit, maxCountUnit){
   }
   return countUnit;
 }
-
+/**
+ * Создаём юнит еды
+ */
 function createFood() {
   countFood = createUnit(classFoodUnit, countFood, MAX_COUNT_FOOD);
 }
-
+/**
+ * Создаём юнит препядствия
+ */
 function createBarrier() {
   countBarrier = createUnit(classBarrierUnit, countBarrier, MAX_COUNT_BARRIER);
 }
-
+/**
+ * Создаём змею
+ */
 function respawn() {
   snakeCoordX = Math.floor(FIELD_SIZE_X / 2);
   snakeCoordY = Math.floor(FIELD_SIZE_Y / 2);
@@ -191,11 +225,15 @@ function respawn() {
   snake.push(snakeHead);
   snake.push(snakeTail);
 }
-
+/**
+ * Обновляем игру
+ */
 function refreshGameHandler() {
   document.location.reload(true);
 }
-
+/**
+ * Движение змеи
+ */
 function move() {
   var newUnit;
   var table = document.getElementById(idGameTable);
@@ -234,7 +272,13 @@ function move() {
     gameOver();
   }
 }
-
+/**
+ * Конец поля
+ * @param  {[number]} valueCoords текущее значение координаты
+ * @param  {[number]} minCoords   минимальная координата
+ * @param  {[number]} maxCoords   максимальная координата
+ * @return {[number]}
+ */
 function isEndFields(valueCoords, minCoords, maxCoords){
   if (valueCoords < minCoords) {
     valueCoords = maxCoords;
@@ -243,15 +287,27 @@ function isEndFields(valueCoords, minCoords, maxCoords){
   }
   return valueCoords;
 }
-
+/**
+ * Это юнит змеи
+ * @param  {[HTMLelement]} unit
+ * @return {Boolean}
+ */
 function isSnakeUnit(unit) {
   return snake.includes(unit);
 }
-
+/**
+ * Это юнит препядствия
+ * @param  {[HTMLelement]} unit
+ * @return {Boolean}
+ */
 function isBarrierUnit(unit){
   return unit.classList.contains(classBarrierUnit);
 }
-
+/**
+ * Это юнит еды
+ * @param  {[HTMLelement]} unit
+ * @return {Boolean}
+ */
 function isFoodUnit(unit) {
   if(unit.classList.contains(classFoodUnit)) {
     unit.classList.remove(classFoodUnit);
@@ -265,7 +321,9 @@ function isFoodUnit(unit) {
     return false;
   }
 }
-
+/**
+ * Конец игры
+ */
 function gameOver() {
   clearInterval(snakeTimer);
   clearInterval(barrierTimer);
@@ -277,4 +335,7 @@ function gameOver() {
   refreshGameHandler();
 }
 
+/**
+ * HTML load
+ */
 window.onload = init;
