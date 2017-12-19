@@ -32,8 +32,8 @@
   border: 0;
 }
 
-#score {
-  padding: 15px;
+.score, .level {
+  padding: 5px;
 }
 
 .game-table {

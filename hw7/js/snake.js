@@ -1,10 +1,16 @@
 'use strict';
-// params
+/* --- params --- */
+// coords
 var FIELD_SIZE_X = 40; // cells x
 var FIELD_SIZE_Y = 40; // cells y
-var SNAKE_SPEED = 100; // ms
+// speed
+var SNAKE_SPEED = 300; // ms
 var FOOD_SPEED = 3000; // ms
 var BARRIER_SPEED = 5000; // ms
+// level up
+var LEVEL_UP_SPEED = 20000;
+var LEVEL_REDUCE_SPEED_PERSENT = 10;
+var MAX_LEVEL = 10;
 // max barrier 10% cells
 var MAX_COUNT_BARRIER = Math.floor(((FIELD_SIZE_X * FIELD_SIZE_Y) / 100) * 10);
 // max food 1% cells
@@ -14,6 +20,7 @@ var MAX_COUNT_FOOD = Math.floor(((FIELD_SIZE_X * FIELD_SIZE_Y) / 100) * 1);
 var snakeTimer;
 var foodTimer;
 var barrierTimer;
+var levelTimer;
 var snake = [];
 var snakeCoordX;
 var snakeCoordY;
@@ -21,6 +28,7 @@ var direction = 'top'; // right, bottom, left, top
 var score = 0;
 var countBarrier = 0;
 var countFood = 0;
+var countLevel = 1;
 
 // id html
 var idButtonStart = 'snake-start';
@@ -29,6 +37,7 @@ var idSnakeField = 'snake-field';
 var idSnakeActionBar = 'snake-action-bar';
 var idGameTable = 'game-table';
 var idScore = 'score';
+var idLevel = 'level';
 
 // class html
 var classGameTable = 'game-table';
@@ -104,12 +113,33 @@ function generateGameField() {
   document.getElementById(idSnakeField).appendChild(table);
 }
 
+function reduceSpeed(speed, persentReduce){
+  return speed - Math.floor((speed / 100) * persentReduce);
+}
+
+function nextLevel(){
+  if (countLevel < MAX_LEVEL){
+    var snakeSpeed = reduceSpeed(SNAKE_SPEED, LEVEL_REDUCE_SPEED_PERSENT * countLevel);
+    var barrierSpeed = reduceSpeed(BARRIER_SPEED, LEVEL_REDUCE_SPEED_PERSENT * countLevel);
+
+    clearInterval(snakeTimer);
+    clearInterval(barrierTimer);
+
+    snakeTimer = setInterval(move, snakeSpeed);
+    barrierTimer = setInterval(createBarrier, barrierSpeed);
+
+    countLevel++;
+    document.getElementById(idLevel).innerText = countLevel;
+  }
+}
+
 function startGameHandler() {
   respawn();
 
   snakeTimer = setInterval(move, SNAKE_SPEED);
   foodTimer = setInterval(createFood, FOOD_SPEED);
   barrierTimer = setInterval(createBarrier, BARRIER_SPEED);
+  levelTimer = setInterval(nextLevel, LEVEL_UP_SPEED);
 }
 
 function createUnit(classUnit, countUnit, maxCountUnit){
@@ -240,7 +270,11 @@ function gameOver() {
   clearInterval(snakeTimer);
   clearInterval(barrierTimer);
   clearInterval(foodTimer);
+  clearInterval(levelTimer);
+
   alert(msgGameOver);
+
+  refreshGameHandler();
 }
 
 window.onload = init;
