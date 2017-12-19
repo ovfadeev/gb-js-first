@@ -205,11 +205,11 @@ function move() {
 
 function isEndFields(valueCoords, minCoords, maxCoords){
   if (valueCoords < minCoords) {
-    var value = maxCoords;
+    valueCoords = maxCoords;
   } else if (valueCoords > maxCoords) {
-    var value = 0;
+    valueCoords = 0;
   }
-  return value;
+  return valueCoords;
 }
 
 function isSnakeUnit(unit) {
