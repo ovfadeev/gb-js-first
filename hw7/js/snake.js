@@ -256,9 +256,7 @@ function move() {
   snakeCoordX = isEndFields(snakeCoordX, 0, FIELD_SIZE_X - 1);
   snakeCoordY = isEndFields(snakeCoordY, 0, FIELD_SIZE_Y - 1);
 
-  if(snakeCoordX >= 0 && snakeCoordX <= FIELD_SIZE_X) {
-    newUnit = table.children[snakeCoordX].children[snakeCoordY];
-  }
+  newUnit = table.children[snakeCoordX].children[snakeCoordY];
 
   if(newUnit && !isSnakeUnit(newUnit) && !isBarrierUnit(newUnit)) {
     newUnit.classList.add(classSnakeUnit);
