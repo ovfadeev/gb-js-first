@@ -160,7 +160,7 @@ function createUnit(classUnit, countUnit, maxCountUnit){
     var table = document.getElementById(idGameTable);
     var unit = table.children[unitX].children[unitY];
 
-    if(!unit.classList.contains(classSnakeUnit)) {
+    if(!unit.classList.contains(classSnakeUnit) && !unit.classList.contains(classFoodUnit) && !unit.classList.contains(classBarrierUnit)) {
       unitCreated = true;
       unit.classList.add(classUnit);
       countUnit++;
