@@ -293,10 +293,9 @@ function clearAllIntervals(){
  * Конец игры
  */
 function gameOver() {
-  clearAllIntervals();
-
   alert(msgGameOver);
 
+  clearAllIntervals();
   refreshGameHandler();
 }
 /* --- params --- */
