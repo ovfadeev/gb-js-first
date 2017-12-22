@@ -282,12 +282,18 @@ function isFoodUnit(unit) {
   }
 }
 /**
- * Конец игры
+ * Очистка всех интервалов
  */
-function gameOver() {
+function clearAllIntervals(){
   for (var i = 1; i <= arrTimers.length; i++) {
     window.clearInterval(i);
   }
+}
+/**
+ * Конец игры
+ */
+function gameOver() {
+  clearAllIntervals();
 
   alert(msgGameOver);
 
